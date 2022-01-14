@@ -17,22 +17,12 @@ interface HeroUnitProps {
 //=============================
 const HeroUnit: types.Brick<HeroUnitProps> = ({ padding }) => {
   return (
-    <div
-      className={`max-w-xl mx-auto px-6 ${
-        padding === 'big' ? 'py-20' : 'py-12'
-      }`}
-    >
+    <div className={`max-w-xl mx-auto px-6 ${padding === 'big' ? 'py-20' : 'py-12'}`}>
       <div className="flex flex-col items-center">
-        <Image
-          propName="icon"
-          alt="Icon"
-          maxWidth={80}
-          aspectRatio={1}
-          imageClassName="w-20 h-20 mb-5"
-        />
+        <Image propName="icon" alt="Icon" maxWidth={80} aspectRatio={1} imageClassName="w-20 h-20 mb-5" />
         <Text
           renderBlock={(props) => (
-            <h1 className="text-3xl sm:text-4xl text-center font-black text-gray-900 dark:text-white leading-tight mb-3">
+            <h1 className="text-3xl sm:text-4xl text-center font-black text-gray-900 leading-tight mb-3">
               {props.children}
             </h1>
           )}
@@ -40,11 +30,7 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({ padding }) => {
           propName="title"
         />
         <RichText
-          renderBlock={(props) => (
-            <p className="text-xl text-center leading-relaxed text-gray-700 dark:text-gray-100">
-              {props.children}
-            </p>
-          )}
+          renderBlock={(props) => <p className="text-xl text-center leading-relaxed text-gray-700">{props.children}</p>}
           placeholder="Type a text..."
           propName="text"
           allowedFeatures={[
@@ -54,11 +40,7 @@ const HeroUnit: types.Brick<HeroUnitProps> = ({ padding }) => {
             types.RichTextFeatures.Code,
             types.RichTextFeatures.Link,
           ]}
-          renderCode={(props) => (
-            <code className="text-sm py-1 px-2 bg-gray-200 dark:bg-gray-700 rounded">
-              {props.children}
-            </code>
-          )}
+          renderCode={(props) => <code className="text-sm py-1 px-2 bg-gray-200 rounded">{props.children}</code>}
         />
       </div>
     </div>
